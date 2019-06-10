@@ -1,0 +1,92 @@
+
+package javaapplication_aps_jogo;
+
+import java.util.Scanner;
+
+public class JavaApplication_aps_jogo {
+
+    public static void main(String[] args) {
+
+        int pre[]={0,4,0,24};
+        int obj[]={64,7,11,0};
+        
+        // Sequencia + | * | - | / |
+        int jogada1[]={2,4,8,3};
+        int jogada2[]={4,3,6,1};
+        int jogada3[]={0,2,1,1};
+        int jogada4[]={0,2,4,3};
+        
+        int comand;
+        int op;
+        int i;
+        int cont;
+        
+        //Loop principal
+        do {
+        
+        System.out.println("-------------------------------------------");
+        System.out.println("------------------Algomath-----------------");
+        System.out.println("-------------------------------------------");
+        System.out.println("Olá!");
+        System.out.println("  Para jogar é bem simples, basta digitar os \n comando que se obtenha o objetivo. \n Cuidado, você só possui 4 jogadas! ");
+        System.out.println("");
+        
+        System.out.println("MENU (digite a opção que deseja)");
+        System.out.println("");
+        System.out.println("(1) INICIAR");
+        System.out.println("(0) SAIR");
+        op=new Scanner(System.in).nextInt();
+        System.out.println("-------------------------------------------");
+        
+        for(i=0;i<4;i++){// Loop que roda o desafio
+        System.out.println("-------------------------------------------");
+        System.out.println("Voce tem "+pre[i]+", dê os comandos até chegar no objetivo "+obj[i]);
+        
+            for(cont=0;cont<=3;cont++){
+                System.out.println("(1) +"+jogada1[i]);
+                System.out.println("(2) *"+jogada2[i]);
+                System.out.println("(3) -"+jogada3[i]);
+                System.out.println("(4) /"+jogada4[i]);
+                System.out.println("");
+                System.out.print("Comando>> ");
+                comand=new Scanner(System.in).nextInt();
+
+
+                switch (comand){//Loop que roda as jogadas
+
+                    case 1: 
+                        pre[i]=pre[i]+jogada1[i];
+                        System.out.println("Tem "+pre[i]);
+                        System.out.println("");
+                        break;
+                    case 2:
+                        pre[i]=pre[i]*jogada2[i];
+                        System.out.println("Tem "+pre[i]);
+                        System.out.println("");
+                        break;
+                    case 3:
+                        pre[i]=pre[i]-jogada3[i];
+                        System.out.println("Tem "+pre[i]);
+                        System.out.println("");
+                        break;
+                    case 4:
+                        pre[i]=pre[i]/jogada4[i];
+                        System.out.println("Tem "+pre[i]);
+                        System.out.println("");
+                        break;
+                    default:   
+                    	System.out.println("");
+                        System.out.println("Comando errado! Tente novamente: ");
+                }
+                
+            }
+            if(pre[i]==obj[i]) {
+                	System.out.println("Votória!!!");
+                }else{
+                    System.out.println("Errou!!!");
+                }
+        }
+        }while(op!=0);
+	}    
+
+}
